@@ -31,6 +31,7 @@ def get_all_courses():
     
     cursor.execute(sql)
     rows = cursor.fetchall()
+    conn.commit()
     conn.close()
     
     courses = []
@@ -60,6 +61,7 @@ def get_course_by_id(course_id):
     
     cursor.execute('SELECT * FROM courses WHERE course_id = ?', (course_id,))
     row = cursor.fetchone()
+    conn.commit()
     conn.close()
     
     if row:
@@ -164,6 +166,7 @@ def get_all_assignments():
     
     cursor.execute(sql)
     rows = cursor.fetchall()
+    conn.commit()
     conn.close()
     
     assignments = []
@@ -192,6 +195,7 @@ def get_assignment_by_id(assignment_id):
     
     cursor.execute('SELECT * FROM assignments WHERE assignment_id = ?', (assignment_id,))
     row = cursor.fetchone()
+    conn.commit()
     conn.close()
     
     if row:
@@ -339,6 +343,7 @@ def get_statistics():
     
     cursor.execute(sql)
     result = cursor.fetchone()
+    conn.commit()
     conn.close()
     
     total = result['total'] or 0
@@ -383,6 +388,7 @@ def get_assignments_due_this_week():
     
     cursor.execute(sql)
     rows = cursor.fetchall()
+    conn.commit()
     conn.close()
     
     assignments = []
