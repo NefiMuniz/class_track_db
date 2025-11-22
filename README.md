@@ -6,7 +6,7 @@ This app connects to a SQLite 3 database, performing all create, read, update, a
 
 A unique feature is the "Seed Database" button—which allows one-click population of the application with sample courses and assignments, helping new users or reviewers to explore ClassTrack right away.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/TSa6PY7JsR4)
 
 # Relational Database
 
