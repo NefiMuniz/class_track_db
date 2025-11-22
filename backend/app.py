@@ -10,7 +10,7 @@ ENVIRONMENT CONFIGURATION:
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from config import get_config
-from database import init_database
+from database import init_database, seed_sample_data
 import models
 import os
 
@@ -269,6 +269,17 @@ def delete_assignment(assignment_id):
             'success': False,
             'error': str(e)
         }), 500
+    
+# ==================== SEEDING DATABASE ========================
+
+@app.route('/api/seed', methods=['POST'])
+def seed_database():
+    try:
+        seed_sample_data()  # Existing function
+        return jsonify({'success': True, 'message': 'Database seeded with sample data.'})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 
 # ==================== STATISTICS & REPORTS ====================
 

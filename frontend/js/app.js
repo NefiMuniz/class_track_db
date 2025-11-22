@@ -198,6 +198,27 @@ function attachEventListeners() {
       }
     }
   });
+
+  // Seed database
+  const btnSeedDb = document.getElementById('seed-db-btn');
+  if (btnSeedDb) {
+    btnSeedDb.addEventListener('click', async () => {
+      if (confirm('Seed database with sample data? This will remove all current data.')) {
+        try {
+          const response = await fetch('/api/seed', { method: 'POST' });
+          const result = await response.json();
+          if (result.success) {
+            alert('Database seeded successfully!');
+            await refreshAllData();
+          } else {
+            alert('Error seeding database: ' + result.error);
+          }
+        } catch (e) {
+          alert('Failed to contact server.');
+        }
+      }
+    });
+  }
 }
 
 // ==================== UI STATE MANAGEMENT ====================

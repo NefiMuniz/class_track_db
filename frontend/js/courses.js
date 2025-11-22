@@ -241,7 +241,7 @@ async function confirmDeleteCourse(courseId) {
   try {
     await deleteCourseAPI(courseId);
     showToast("Course deleted successfully", "success");
-
+    refreshAllData();
     // Refresh data
     await refreshAllData();
   } catch (error) {
