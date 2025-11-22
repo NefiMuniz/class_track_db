@@ -32,7 +32,7 @@ class Config:
     
     # ========== CORS CONFIGURATION ==========
     # Local: http://localhost:5000,http://127.0.0.1:5000
-    # Production: https://your-app.onrender.com
+    # Production: https://class_track_db.onrender.com
     CORS_ORIGINS = os.environ.get('CORS_ORIGINS', 'http://localhost:5000').split(',')
     
     # ========== FLASK SETTINGS ==========
